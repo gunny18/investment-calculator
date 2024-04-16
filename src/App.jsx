@@ -18,12 +18,20 @@ const App = () => {
     setInvestment((prevInvestment) => {
       return {
         ...prevInvestment,
-        [param]: val,
+        [param]: Number.parseInt(val),
       };
     });
   };
 
-  const results = calculateInvestmentResults(investment);
+  let results;
+  if (
+    investment.annualInvestment &&
+    investment.annualInvestment &&
+    investment.expectedReturn &&
+    investment.duration
+  ) {
+    results = calculateInvestmentResults(investment);
+  }
 
   return (
     <>
